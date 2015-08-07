@@ -1,0 +1,29 @@
+Xrm.Page.ui.getFormType()
+
+Form Type	Value
+Undefined	0
+Create	1
+Update	2
+Read Only	3
+Disabled	4
+Quick Create	5
+Bulk Edit	6
+Read Optimized	11
+
+
+getSaveMode(), returns a value indicating how the save event was initiated by the user. The following table describes the supported values returned to detect different ways entity records may be saved by the user in CRM 2013.
+
+execObj.getEventArgs().getSaveMode();
+
+Event Mode	Value
+Save	1
+Save and Close	2
+Deactivate	5
+Reactivate	6
+Send (Email)	7
+Disqualify (Lead)	15
+Qualify (Lead)	16
+Assign (user or team owned entities)	47
+Save as Completed (Activities)	58
+Save and New	59
+AutoSave	70

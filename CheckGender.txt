@@ -1,0 +1,9 @@
+function checkGender() {
+    var x = Xrm.Page.getAttribute("gr_gender").getText();
+    if (x == "Male") {
+        Xrm.Page.getAttribute("gr_dateofbirth").setRequiredLevel("required");
+    }
+    else {
+        Xrm.Page.getAttribute("gr_dateofbirth").setRequiredLevel("none");
+    }
+}

@@ -1,0 +1,9 @@
+function setAddressOfIframe()
+{
+  //alert("here");
+  var frame = Xrm.Page.ui.controls.get("IFRAME_myFirstIframe");
+  //var i =  Xrm.Page.getAttribute("fullname").getValue();
+  //var url = "http://devvm01/GlobalRescue-Dev01/WebResources/gr_myAspxPage" + "?id=" + i;
+  alert("Go3");
+  frame.setSrc("https://msdn.microsoft.com/en-us/library/015103yb.aspx");
+}

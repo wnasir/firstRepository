@@ -1,0 +1,15 @@
+OrganizationServiceProxy serviceProxy;
+ClientCredentials clientCredentials;
+Uri OrganizationUri;
+clientCredentials = new ClientCredentials();
+clientCredentials.Windows.ClientCredential = (NetworkCredential)CredentialCache.DefaultCredentials;
+OrganizationUri = new Uri(String.Format("http://devvm01/GlobalRescue-Dev01/XRMServices/2011/Organization.svc"));
+tempGuid = Guid.Empty;
+using (serviceProxy = new OrganizationServiceProxy(OrganizationUri, null, clientCredentials, null))
+{
+    serviceProxy.ServiceConfiguration.CurrentServiceEndpoint.Behaviors.Add(new ProxyTypesBehavior());
+    IOrganizationService service = (IOrganizationService)serviceProxy;
+    Entity account = new Entity("account");
+    account.Attributes["name"] = name;
+    tempGuid = service.Create(account);
+}

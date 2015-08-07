@@ -1,0 +1,15 @@
+function getAge() {
+    var today = new Date();
+    var x = Xrm.Page.getAttribute("gr_dateofbirth").getValue();
+    var age = today.getFullYear() - x.getFullYear();
+    var m = today.getMonth() - x.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < x.getDate())) {
+        age--;
+    }
+    if (age < 21) {
+        alert("You must be at least 21 years of age to register here!")
+    }
+    else {
+        Xrm.Page.getAttribute("gr_age").setValue(age);
+    }
+}

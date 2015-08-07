@@ -1,0 +1,18 @@
+Send Parameters
+
+var parameters = {};
+parameters["con_com_guid"] = Xrm.Page.getAttribute("parentcustomerid").getValue()[0].id;
+parameters["con_com_name"] = Xrm.Page.getAttribute("parentcustomerid").getValue()[0].name;
+parameters["con_com_type"] = Xrm.Page.getAttribute("parentcustomerid").getValue()[0].entityType;
+Xrm.Utility.openEntityForm("contact", null, parameters);
+
+
+Recieve Parameters
+
+var params = Xrm.Page.context.getQuerystringParameters();
+if (params["con_com_guid"] != "")
+{
+    parentcustomerid = params["con_com_guid"];
+    parentcustomeridname = params["con_com_name"];
+    parentcustomeridtype = params["con_com_type"];
+}
